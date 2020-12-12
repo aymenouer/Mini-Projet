@@ -1,2 +1,2 @@
 # Mini-Projet
-Mini projet sur les evenments 
+Mini projet sur les événements
