@@ -1,0 +1,29 @@
+<section class="intro text-center section-padding" id="intro">
+  <div class="container wow animated fadeInLeft animated" data-wow-duration="1s" data-wow-delay="0.5s">
+    <div class="row">
+      <div class="col-lg-8 align-center about">
+
+      </div>
+    </div>
+  </div>
+</section>
+<section class="subscribe text-center">
+  <div class="subscribe-overlay"></div>
+  <div *ngIf="currentUser; else loggedOut" class="container wow animated fadeInDown" data-wow-duration="1s" data-wow-delay="0.3s">
+    <h1>      <strong>{{ currentUser.username }}</strong> Profile</h1>
+
+    <p>
+      <strong>Email:</strong>
+      {{ currentUser.email }}
+    </p>
+    <strong>Roles:</strong>
+    <ul>
+      <li *ngFor="let role of currentUser.roles">
+        {{ role }}
+      </li>
+    </ul>
+  </div>
+  <ng-template #loggedOut>
+    Please login.
+  </ng-template>
+</section>

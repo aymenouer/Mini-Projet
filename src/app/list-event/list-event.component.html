@@ -1,0 +1,43 @@
+<section class="team text-center section-padding" >
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 wow animated fadeInUp align-center" data-wow-duration="1s" data-wow-delay="1s">
+        <h1 class="arrow">EVENTS : </h1><hr>
+        <p>Those are our events</p>
+      </div>
+    </div>
+
+    <div class="row" *ngIf=" role == 'ROLE_MODERATOR' || role == 'ROLE_ADMIN'  ">
+      <button type="submit" (click)="open_add_()" class="btn btn-success">add Event</button>
+
+      <div *ngIf="open_add == true">
+  <app-form-add-event (notifacation) ="pushEvent($event)"> ></app-form-add-event>
+</div>
+
+
+    </div>
+
+
+    <div class="row">
+      <div class="speakers-wrap">
+        <div id="portfolioSlider">
+          <ul class="slides" >
+
+
+
+            <app-event (notifacation) ="delete_Events($event)" [name_event]="name_event" *ngFor="let Event of listEvents | eventCategory : type_category:active_pipe" [event]="Event" >
+
+            </app-event>
+
+
+            <!-- <li> Second Set of Speakers -->
+
+          </ul>
+        </div>
+      </div>
+    </div> <!--Row Ends Here-->
+  </div>
+  <!-- Example Speaker -->
+
+  <!-- /Example Speaker -->
+</section>

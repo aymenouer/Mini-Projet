@@ -1,0 +1,43 @@
+
+<!--HEADER-->
+<div class="header header-hide">
+  <div class="container">
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                data-target="#example-navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" data-scroll href="#sec_1"><img src="../../assets/assets_front/img/logo.png" alt="logo"/></a>
+      </div>
+
+
+      <div class="collapse navbar-collapse" id="example-navbar-collapse">
+        <ul class="nav navbar-nav"  routerLinkActive="active" *ngIf="!isLoggedIn">
+
+          <li><a  href="/welcome"  >Home</a></li>
+
+          <li><a data-scroll  href="#team">Team</a></li>
+          <li><a data-scroll href="#sponsers">Sponsors</a></li>
+          <li><a data-scroll href="#contact">Contact</a></li>
+          <li class="nav-item" ><a   href="/register"  routerLink="register" class="nav-link" >Register</a></li>
+          <li class="nav-item" ><a  href="/login" class="nav-link" routerLink="login">Login</a></li>
+
+          <li class="hidden"><a href="#sec_1">Home</a></li>
+        </ul>
+        <ul class="nav navbar-nav"  routerLinkActive="active" *ngIf="isLoggedIn">
+          <li><a  href="/home"  >Home</a></li>
+          <li class="nav-item" ><a   href="/profile"  routerLink="profile" class="nav-link" >Profile : {{ username }}</a></li>
+          <li class="nav-item"  *ngIf="showAdminBoard" ><a   href="/admin"  routerLink="admin" class="nav-link" >Admin Board</a></li>
+          <li class="nav-item"  *ngIf="showModeratorBoard" ><a   href="/mod"  routerLink="mod" class="nav-link" >Moderator  Board</a></li>
+
+          <li class="nav-item" ><a   href="/welcome" (click)="logout()" class="nav-link" >LogOut</a></li>
+          <li class="hidden"><a href="#sec_1">Home</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</div>

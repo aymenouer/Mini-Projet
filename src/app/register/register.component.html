@@ -1,0 +1,76 @@
+<section class="intro text-center section-padding" id="intro">
+  <div class="container wow animated fadeInLeft animated" data-wow-duration="1s" data-wow-delay="0.5s">
+    <div class="row">
+      <div class="col-lg-8 align-center about">
+      </div>
+    </div>
+  </div>
+</section>
+<section class="subscribe text-center">
+  <div class="subscribe-overlay"></div>
+  <div class="container wow animated fadeInDown" data-wow-duration="1s" data-wow-delay="0.3s">
+    <h1>Register</h1>
+    <form        *ngIf="!isSuccessful"
+                 name="form"
+                 (ngSubmit)="f.form.valid && onSubmit()"
+                 #f="ngForm"
+                 novalidate
+            class="center-block align-center col-lg-5 col-md-5 col-sm-10 col-xs-10">
+      <div class="input-group col-lg-12 align-center">
+        <div class="form-group">
+          <input type="text" class="form-control email-add"    name="username"
+                 [(ngModel)]="user.username"
+                 required
+                 minlength="3"
+                 maxlength="20"
+                 #username="ngModel"
+                 placeholder="Enter UserName">
+          <div   style="color: red;" *ngIf="username.errors && f.submitted">
+            <div *ngIf="username.errors.required">Username is required</div>
+            <div *ngIf="username.errors.minlength">
+              Username must be at least 3 characters
+            </div>
+            <div *ngIf="username.errors.maxlength">
+              Username must be at most 20 characters
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <input   type="email" class="form-control email-add"     name="email"
+                   [(ngModel)]="user.email"
+                   required
+                   email
+                   #email="ngModel"
+                   placeholder="Enter Email"
+          >
+          <div     style="color: red;" *ngIf="email.errors && f.submitted">
+            <div *ngIf="email.errors.required">Email is required</div>
+            <div *ngIf="email.errors.email">
+              Email must be a valid email address
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <input   type="password" class="form-control email-add"         name="password"
+                   [(ngModel)]="user.password"
+                   required
+                   minlength="6"
+                   #password="ngModel">
+          <div style="color: red;"*ngIf="password.errors && f.submitted">
+            <div *ngIf="password.errors.required">Password is required</div>
+            <div *ngIf="password.errors.minlength">
+              Password must be at least 6 characters
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-default notify-button"><i class="fa fa-paper-plane"></i><span>Sign Up</span></button>
+      </div>
+      <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+        Signup failed!<br />{{ errorMessage }}
+      </div>
+    </form>
+    <div class="alert alert-success" *ngIf="isSuccessful">
+      Your registration is successful!
+    </div>
+  </div>
+</section>

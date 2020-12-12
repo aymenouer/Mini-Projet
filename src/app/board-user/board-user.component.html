@@ -1,0 +1,51 @@
+<p>board-user works!</p>
+<section class="intro text-center section-padding" >
+  <div class="container wow animated fadeInLeft animated" data-wow-duration="1s" data-wow-delay="0.5s">
+    <div class="row">
+
+        <div class="container row">
+          <div class="col-md-12">
+            <h1>Upload Image</h1>
+          </div>
+        </div>
+
+        <div class="container row">
+          <div class="col-md-6">
+            <input type="file" (change)="onFileChanged($event)">
+
+          </div>
+          <div class="col-md-6">
+            <input type="button" (click)="onUpload()" value="upload">
+          </div>
+        </div>
+        <hr />
+        <div class="container row">
+          <div class="col-md-12">
+            <div *ngIf=message>{{message}}</div>
+          </div>
+        </div>
+
+        <div class="container row">
+          <div class="col-md-6">
+            <input type="text" class="form-control" id="name" placeholder="image name" [(ngModel)]="imageName"
+                   name="name" />
+          </div>
+          <div class="col-md-6">
+            <input type="button" class="btn btn-danger"  (click)="getImage()" value="Get Image">
+
+          </div>
+        </div>
+
+        <div class="container row">
+          <div class="col-md-12">
+            <div *ngIf=retrievedImage>
+              <img [src]="retrievedImage">
+            </div>
+          </div>
+        </div>
+
+
+
+    </div>
+  </div>
+</section>

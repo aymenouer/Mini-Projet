@@ -1,0 +1,82 @@
+<section class="text-center section-padding" id="responsive">
+  <div class="container wow animated fadeInLeft bottom-spacing">
+    <div class="row">
+      <div class="col-md-8 align-center wow animated fadeInLeft">
+        <div class="form-group">
+
+
+
+
+
+
+<form [formGroup]="EventForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label>titre : </label>
+
+    <input type="text" formControlName="titre" class="form-control">
+  </div>
+  <div class="alert alert-danger" *ngIf="EventForm.get('titre').errors && EventForm.controls['titre'].touched" >
+    <div *ngIf="EventForm.controls['titre'].hasError('required')">
+      titre is required
+    </div>
+
+
+
+  </div>
+  <div class="form-group">
+    <label>date_Debut : </label>
+    <input type="date" formControlName="date_Debut" class="form-control">
+  </div>
+  <div class="alert alert-danger" *ngIf="EventForm.get('date_Debut').errors && EventForm.controls['date_Debut'].touched" >
+    <div *ngIf="EventForm.controls['date_Debut'].hasError('required')">
+      Email is required
+    </div>
+
+
+
+  </div>
+  <div class="form-group">
+    <label>date_Fin : </label>
+    <input type="date" formControlName="date_Fin" class="form-control">
+  </div>
+  <div class="alert alert-danger" *ngIf="EventForm.get('date_Fin').errors && EventForm.controls['date_Fin'].touched" >
+    <div *ngIf="EventForm.controls['date_Fin'].hasError('required')">
+      date_Fin is required
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Categorie : </label>
+    <select  formControlName="nom_categorie" class="form-control" >
+
+      <option value="ART">ART</option>
+      <option value="FESTIVAL">FESTIVAL</option>
+    </select>
+
+  </div>
+  <div class="alert alert-danger" *ngIf="EventForm.get('nom_categorie').errors && EventForm.controls['nom_categorie'].touched" >
+    <div *ngIf="EventForm.controls['nom_categorie'].hasError('required')">
+      categorie is required
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Image  : </label>
+    <input type="file" (change)="onFileChanged($event)" formControlName="nom_image" class="form-control">
+
+
+
+  </div>
+  <div class="alert alert-danger" *ngIf="EventForm.get('nom_image').errors && EventForm.controls['nom_image'].touched" >
+    <div *ngIf="EventForm.controls['nom_image'].hasError('required')">
+      Image is required
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="EventForm.invalid" class="btn btn-success">Ajouter</button>
+
+</form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,105 @@
+<div id="sponsers" class="ignite-cta text-center section-padding">
+  <div class="container">
+    <div class="row">
+
+      <!-- Jssor Slider Begin -->
+      <div id="slider1_container" style=" ">
+        <div class="inner_carousal" data-u="slides" style="">
+          <div>       <p *ngIf="content != 'User' ">content : {{content}}</p></div>
+
+        </div>
+      </div>
+      <!-- Jssor Slider End -->
+    </div>
+  </div>
+</div>
+
+
+
+<div *ngIf="content == 'User' " >
+
+
+  <section class="features text-center" id="features">
+    <div class="row">
+      <div id="grid-gallery" class="grid-gallery">
+        <section class="grid-wrap">
+          <div class="grid-gal">
+            <div class="col-lg-3 col-sm-12">
+
+            </div>
+
+          </div>
+        </section>
+      </div>
+      <!-- /grid-gallery -->
+
+      <div class="container col-lg-6 col-md-12 features-md">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="features-wrapper">
+              <div class="col-md-4 wow animated fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">
+                <div class="icon">
+                  {{nombre_events}}
+                </div>
+                <h2>Events </h2>
+                <p>You can participate in those events.</p>
+              </div>
+
+              <div class="col-md-4 wow animated fadeInUp" data-wow-duration="1s" data-wow-delay="0.7s">
+                <div class="icon">
+                  6
+                </div>
+                <h2>Categories</h2>
+                <p>thoese arez nombre of categories of events</p>
+              </div>
+
+              <div class="col-md-4 wow animated fadeInUp" data-wow-duration="1s" data-wow-delay="0.9s">
+                <div class="icon">
+
+                </div>
+                <h2>Nombre Des utilisateur </h2>
+                <p>Nombre des utilisateurs de notre applications .</p>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!--row ends here-->
+  </section>
+  <!--/FEATURES-->
+
+  <!--LINE UP-->
+  <section class="text-center section-padding" id="responsive">
+    <div class="container wow animated fadeInLeft bottom-spacing">
+      <div class="row">
+        <div class="col-md-8 align-center wow animated fadeInLeft">
+          <div class="form-group">
+
+
+            <input type="text" class="form-control email-add"  [(ngModel)]="name_event"  placeholder="Enter Name event">
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-schedule container wow animated fadeInDown animated" data-wow-duration="1s" data-wow-delay="1s">
+      <div id="tabs-ui" class="tabs">
+        <nav>
+          <ul>
+            <li><a (click)="change_type_categorie('ALL')" ><span>ALL</span></a></li>
+            <li><a (click)="change_type_categorie('ART')" ><span>ART</span></a></li>
+            <li><a (click)="change_type_categorie('Festival')" ><span>Festival</span></a></li>
+
+          </ul>
+        </nav>
+
+      </div><!-- /tabs -->
+    </div>
+  </section>
+
+  <app-list-event [name_event]="name_event" [active_pipe]="active_pipe" [type_category]="type_category"></app-list-event>
+</div>

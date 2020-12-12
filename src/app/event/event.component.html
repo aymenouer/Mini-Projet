@@ -1,0 +1,20 @@
+<li >
+ <div *ngIf="(event.isValide == true  && event.titre.includes(name_event)) || (role =='ROLE_ADMIN' && event.titre.includes(name_event))" class="col-md-4 col-sm-4 wow animated fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">
+    <div class="overlay-effect effects clearfix">
+      <div class="img" *ngIf="retrievedImage">
+
+        <img  [src]="retrievedImage" alt="Portfolio Item">
+
+
+      </div>
+    </div>
+    <h2>{{event.titre}}</h2>
+    <p> Appartir de {{event.date_Debut | date}} jusqu'à {{event.date_Fin | date}}</p>
+   <p style="color: green" *ngIf=" role =='ROLE_MODERATOR'   || role =='ROLE_ADMIN' ">l event contient {{event.users.length}}</p>
+    <p style="color: red" *ngIf="event.isValide == false  && role =='ROLE_ADMIN' ">l event n est pas encore  valide</p>
+    <a  mat-dialog-actions  (click)="openDialog()" class="learn-more-btn btn-effect wow animated fadeIn" data-wow-duration="0.5s"    data-wow-delay="1.5s" ><i class="fa fa-search"></i><br>View More</a>
+
+    <br>
+  </div>
+
+</li>
