@@ -15,6 +15,7 @@ export class ListEventComponent implements OnInit {
   @Input() name_event: string;
   @Input() type_category: string;
   @Input() active_pipe: boolean;
+  @Output() notif = new EventEmitter<number>();
   role: string;
   currentUser: any;
   open_add: boolean;
@@ -48,6 +49,10 @@ export class ListEventComponent implements OnInit {
 
         console.log(data);
 
+      },
+      () => {},
+      () => {
+        this.notif.emit(this.listEvents.length);
       }
     );
 
@@ -62,6 +67,10 @@ export class ListEventComponent implements OnInit {
 
           console.log(data);
 
+        },
+      () => {},
+        () => {
+          this.notif.emit(this.listEvents.length);
         }
       );
 

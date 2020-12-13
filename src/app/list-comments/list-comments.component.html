@@ -1,0 +1,85 @@
+<div id="sponsers" class="ignite-cta text-center section-padding">
+  <div class="container">
+    <div class="row">
+
+      <!-- Jssor Slider Begin -->
+      <div id="slider1_container" style=" ">
+        <div class="inner_carousal" data-u="slides" style="">
+          <div>       <p *ngIf="content != 'User' ">content : {{content}}</p></div>
+
+        </div>
+      </div>
+      <!-- Jssor Slider End -->
+    </div>
+  </div>
+</div>
+
+
+
+<div *ngIf="content == 'User' " >
+
+
+  <section class="features text-center" id="features">
+    <div class="row">
+      <div id="grid-gallery" class="grid-gallery">
+        <section class="grid-wrap">
+          <div class="grid-gal">
+            <div class="col-lg-3 col-sm-12">
+
+            </div>
+
+          </div>
+        </section>
+      </div>
+      <!-- /grid-gallery -->
+
+
+
+    </div><!--row ends here-->
+  </section>
+  <!--/FEATURES-->
+  <section class="team text-center section-padding" >
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 wow animated fadeInUp align-center" data-wow-duration="1s" data-wow-delay="1s">
+          <h1 class="arrow">List Comment : </h1><hr>
+          <p>Those are Comments of event</p>
+        </div>
+      </div>
+
+<div class="row">
+  <app-form-add-comment [id_event]="event.id" (notifi)="update($event)">
+
+  </app-form-add-comment>
+</div>
+
+
+      <div class="row">
+        <div class="speakers-wrap">
+          <div id="portfolioSlider">
+            <ul class="slides" >
+
+
+<app-comment  (notifacation) ="update($event)" *ngFor="let comment of listComments " [comment]="comment">
+
+</app-comment>
+
+
+
+
+              <!-- <li> Second Set of Speakers -->
+
+            </ul>
+          </div>
+        </div>
+      </div> <!--Row Ends Here-->
+    </div>
+    <!-- Example Speaker -->
+
+    <!-- /Example Speaker -->
+  </section>
+
+  <!--LINE UP-->
+  </div>
+
+

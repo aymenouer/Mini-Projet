@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import { PipesModule } from 'pipes-module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,7 +23,15 @@ import { DetailEventComponent } from './detail-event/detail-event.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
 import { FormAddEventComponent } from './form-add-event/form-add-event.component';
+import { ListCommentsComponent } from './list-comments/list-comments.component';
+import { CommentComponent } from './comment/comment.component';
+import { FormAddCommentComponent } from './form-add-comment/form-add-comment.component';
+import { ListStoryComponent } from './list-story/list-story.component';
+import { StorieComponent } from './storie/storie.component';
+import { DetailStorieComponent } from './detail-storie/detail-storie.component';
+import { FormAddStoryComponent } from './form-add-story/form-add-story.component';
 
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +50,13 @@ import { FormAddEventComponent } from './form-add-event/form-add-event.component
     EventCategoryPipe,
     DetailEventComponent,
     FormAddEventComponent,
+    ListCommentsComponent,
+    CommentComponent,
+    FormAddCommentComponent,
+    ListStoryComponent,
+    StorieComponent,
+    DetailStorieComponent,
+    FormAddStoryComponent,
   ],
   entryComponents: [DetailEventComponent],
   imports: [
@@ -52,9 +67,11 @@ import { FormAddEventComponent } from './form-add-event/form-add-event.component
     PipesModule,
     BrowserAnimationsModule,
     MatDialogModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastrModule.forRoot()
   ],
   providers: [authInterceptorProviders],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

@@ -44,7 +44,10 @@ this.name_event = '' ;
       }
     );
   }
-
+  change_nombre(num : number)
+  {
+    this.nombre_events = num;
+  }
   change_type_categorie( type: string )
   {
     // tslint:disable-next-line:triple-equals

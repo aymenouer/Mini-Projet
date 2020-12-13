@@ -5,6 +5,7 @@ import {CategorieService} from '../services/categorie.service';
 import {Categorie} from '../models/Categorie';
 import {EventService} from '../services/event.service';
 import {ImageService} from '../services/image.service';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-form-add-event',
@@ -15,7 +16,7 @@ export class FormAddEventComponent implements OnInit {
   EventForm: FormGroup;
   selectedFile: File;
   @Output() notifacation = new EventEmitter<Event>();
-  constructor(private serviceCatgorie: CategorieService, private imageService: ImageService , private Eventservice: EventService) { }
+  constructor(private toastr: ToastrService,private serviceCatgorie: CategorieService, private imageService: ImageService , private Eventservice: EventService) { }
 
   ngOnInit(): void {
     this.EventForm = new FormGroup({
@@ -53,7 +54,9 @@ this.imageService.save_Image(uploadImageData);
         this.Eventservice.addEvent(event).subscribe(
   () => {} ,
   () => {}  ,
-  () => {    this.notifacation.emit(event); }
+  () => {
+    this.toastr.success('En attendant la validation de l event', 'ADD EVENT ');
+    this.notifacation.emit(event); }
 );
   }
 );

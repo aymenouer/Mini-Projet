@@ -5,6 +5,7 @@ import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import {DetailEventComponent} from '../detail-event/detail-event.component';
 import {EventService} from '../services/event.service';
 import {TokenStorageService} from '../services/token-storage.service';
+import {ToastrService} from 'ngx-toastr';
 @Component({
   selector: 'app-event',
   templateUrl: './event.component.html',
@@ -20,7 +21,7 @@ export class EventComponent implements OnInit {
   @Output() notifacation = new EventEmitter<Event>();
   @Input() event: Event;
   @Input() name_event: string;
-  constructor(  private imageService: ImageService, private dialog: MatDialog, private token: TokenStorageService) { }
+  constructor( private imageService: ImageService, private dialog: MatDialog, private token: TokenStorageService) { }
   openDialog(){
     const dialogConfig = new MatDialogConfig();
     dialogConfig.data = {

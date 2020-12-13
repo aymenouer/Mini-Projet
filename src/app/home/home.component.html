@@ -47,7 +47,7 @@
 
               <div class="col-md-4 wow animated fadeInUp" data-wow-duration="1s" data-wow-delay="0.7s">
                 <div class="icon">
-                  6
+                  4
                 </div>
                 <h2>Categories</h2>
                 <p>thoese arez nombre of categories of events</p>
@@ -55,7 +55,7 @@
 
               <div class="col-md-4 wow animated fadeInUp" data-wow-duration="1s" data-wow-delay="0.9s">
                 <div class="icon">
-
++500
                 </div>
                 <h2>Nombre Des utilisateur </h2>
                 <p>Nombre des utilisateurs de notre applications .</p>
@@ -93,6 +93,9 @@
             <li><a (click)="change_type_categorie('ALL')" ><span>ALL</span></a></li>
             <li><a (click)="change_type_categorie('ART')" ><span>ART</span></a></li>
             <li><a (click)="change_type_categorie('Festival')" ><span>Festival</span></a></li>
+            <li><a (click)="change_type_categorie('NIGHTLIFE')" ><span>NIGHTLIFE</span></a></li>
+            <li><a (click)="change_type_categorie('CONFERENCE')" ><span>CONFERENCE</span></a></li>
+
 
           </ul>
         </nav>
@@ -101,5 +104,5 @@
     </div>
   </section>
 
-  <app-list-event [name_event]="name_event" [active_pipe]="active_pipe" [type_category]="type_category"></app-list-event>
+  <app-list-event [name_event]="name_event" (notif) ="change_nombre($event)" [active_pipe]="active_pipe" [type_category]="type_category"></app-list-event>
 </div>

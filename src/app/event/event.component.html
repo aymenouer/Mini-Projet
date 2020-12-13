@@ -13,7 +13,8 @@
    <p style="color: green" *ngIf=" role =='ROLE_MODERATOR'   || role =='ROLE_ADMIN' ">l event contient {{event.users.length}}</p>
     <p style="color: red" *ngIf="event.isValide == false  && role =='ROLE_ADMIN' ">l event n est pas encore  valide</p>
     <a  mat-dialog-actions  (click)="openDialog()" class="learn-more-btn btn-effect wow animated fadeIn" data-wow-duration="0.5s"    data-wow-delay="1.5s" ><i class="fa fa-search"></i><br>View More</a>
-
+   <a [routerLink]="[ 'comments', event.id ]" class="learn-more-btn btn-effect wow animated fadeIn" data-wow-duration="0.5s"    data-wow-delay="1.5s" >Comments</a>
+   <a [routerLink]="[ 'storie', event.id ]" class="learn-more-btn btn-effect wow animated fadeIn" data-wow-duration="0.5s"    data-wow-delay="1.5s" >Stories</a>
     <br>
   </div>
 

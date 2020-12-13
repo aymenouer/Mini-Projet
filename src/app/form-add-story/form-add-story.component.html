@@ -1,0 +1,16 @@
+<form [formGroup]="StoryForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label>Image  : </label>
+    <input type="file" (change)="onFileChanged($event)" formControlName="nom_image" class="form-control">
+
+
+
+  </div>
+  <div class="alert alert-danger" *ngIf="StoryForm.get('nom_image').errors && StoryForm.controls['nom_image'].touched" >
+    <div *ngIf="StoryForm.controls['nom_image'].hasError('required')">
+      Image is required
+    </div>
+  </div>
+  <button type="submit" [disabled]="StoryForm.invalid" class="btn btn-success">Ajouter</button>
+
+</form>

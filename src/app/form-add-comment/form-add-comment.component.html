@@ -1,0 +1,18 @@
+<form [formGroup]="CommentForm" (ngSubmit)="onSubmit()">
+<div class="form-group">
+  <label>Contenu : </label>
+
+  <textarea formControlName="contenu" class="form-control"> </textarea>
+</div>
+<div class="alert alert-danger" *ngIf="CommentForm.get('contenu').errors && CommentForm.controls['contenu'].touched" >
+  <div *ngIf="CommentForm.controls['contenu'].hasError('required')">
+    Contenu is required
+  </div>
+
+
+
+</div>
+
+<button type="submit" [disabled]="CommentForm.invalid" class="btn btn-success">Ajouter</button>
+
+</form>

@@ -1,0 +1,5 @@
+package tn.esprit.spring.entity;
+
+public  enum Categorie_type {
+	GAMING,ART, BUSINESS, CONCERT,NIGHTLIFE,CONFERENCE,EDUCATION,SPORT,TECHNOLOGIE,TRAVEL,FESTIVAL
+}

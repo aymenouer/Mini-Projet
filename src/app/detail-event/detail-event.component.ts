@@ -4,6 +4,7 @@ import {Event} from '../models/Event';
 import {ImageService} from '../services/image.service';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {TokenStorageService} from '../services/token-storage.service';
+import {ToastrService} from 'ngx-toastr';
 @Component({
   selector: 'app-detail-event',
   templateUrl: './detail-event.component.html',
@@ -18,7 +19,7 @@ export class DetailEventComponent implements OnInit {
   currentUser: any;
   etat_participer: boolean;
 
-  constructor(private Eventservice: EventService, private token: TokenStorageService, private imageService: ImageService,private dialogRef: MatDialogRef<DetailEventComponent> , @Inject(MAT_DIALOG_DATA)  public data) {
+  constructor(private toastr: ToastrService, private Eventservice: EventService, private token: TokenStorageService, private imageService: ImageService,private dialogRef: MatDialogRef<DetailEventComponent> , @Inject(MAT_DIALOG_DATA)  public data) {
     this.event = data.Event;
 
   }
@@ -58,11 +59,14 @@ export class DetailEventComponent implements OnInit {
   {
     this.etat_participer=true;
     this.Eventservice.participerEvent(this.currentUser.id, this.event.id);
+    this.toastr.success("Merci pour votre participation","participation");
   }
   remove_participation()
   {
     this.etat_participer=false;
     this.Eventservice.delete_participation(this.currentUser.id, this.event.id);
+    this.toastr.error("Delete de votre participation","participation");
+
   }
 
 }

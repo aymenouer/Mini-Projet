@@ -1,0 +1,83 @@
+<div id="sponsers" class="ignite-cta text-center section-padding">
+  <div class="container">
+    <div class="row">
+
+      <!-- Jssor Slider Begin -->
+      <div id="slider1_container" style=" ">
+        <div class="inner_carousal" data-u="slides" style="">
+          <div>       <p *ngIf="content != 'User' ">content : {{content}}</p></div>
+
+        </div>
+      </div>
+      <!-- Jssor Slider End -->
+    </div>
+  </div>
+</div>
+
+
+
+<div *ngIf="content == 'User' " >
+
+
+  <section class="features text-center" id="features">
+    <div class="row">
+      <div id="grid-gallery" class="grid-gallery">
+        <section class="grid-wrap">
+          <div class="grid-gal">
+            <div class="col-lg-3 col-sm-12">
+
+            </div>
+
+          </div>
+        </section>
+      </div>
+      <!-- /grid-gallery -->
+
+
+
+    </div><!--row ends here-->
+  </section>
+  <!--/FEATURES-->
+  <section class="team text-center section-padding" >
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 wow animated fadeInUp align-center" data-wow-duration="1s" data-wow-delay="1s">
+          <h1 class="arrow">List Storys : </h1><hr>
+          <p>Those are Storys of event {{event.titre}}</p>
+        </div>
+      </div>
+
+      <div class="row">
+
+   <app-form-add-story [id_event]="event.id" (notif)="update($event)" ></app-form-add-story>
+      </div>
+
+
+
+
+    </div>
+
+    <!-- /Example Speaker -->
+  </section>
+  <section class="text-center section-padding" id="responsive">
+
+    <!-- Example Speaker -->
+    <div class="container-schedule container wow animated fadeInDown animated" data-wow-duration="1s" data-wow-delay="1s">
+      <div id="tabs-ui" class="tabs">
+        <nav>
+          <ul>
+
+              <app-storie *ngFor="let storie of listStories" [storie]="storie" ></app-storie>
+
+
+
+          </ul>
+        </nav>
+
+      </div><!-- /tabs -->
+    </div>
+  </section>
+  <!--LINE UP-->
+</div>
+
+
